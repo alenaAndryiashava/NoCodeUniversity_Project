@@ -11,13 +11,13 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class HomePage {
-    private  final SelenideElement signInButton_Header = $(byCssSelector("[href='/sign-in']:nth-child(1)"));
-    private  final SelenideElement signUpButton_Header = $(byCssSelector("[href='/sign-up']:nth-child(2)"));
-    private  final SelenideElement professorsButton = $(byCssSelector("[href='#teacher-spotlight-heading']"));
-    private  final SelenideElement avatarImg = $x("//header/div[1]/div[1]/div[2]/button[1]");
-    private  final SelenideElement signOutButton = $(byCssSelector("[class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-vsdmmi'][href='#']"));
-    private  final SelenideElement messageNonRegisteredUser = $x("//header//h1[1]");
-    private  final SelenideElement messageRole = $x("//header/div[1]/div[1]/div[1]/p[1]");
+    private final SelenideElement signInButton_Header = $(byCssSelector("[href='/sign-in']:nth-child(1)"));
+    private final SelenideElement signUpButton_Header = $(byCssSelector("[href='/sign-up']:nth-child(2)"));
+    private final SelenideElement professorsButton = $(byCssSelector("[href='#teacher-spotlight-heading']"));
+    private final SelenideElement avatarImg = $x("//header/div[1]/div[1]/div[2]/button[1]");
+    private final SelenideElement signOutButton = $(byCssSelector("[class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-vsdmmi'][href='#']"));
+    private final SelenideElement messageNonRegisteredUser = $x("//header//h1[1]");
+    private final SelenideElement messageRole = $x("//header/div[1]/div[1]/div[1]/p[1]");
 
     @Step("Click sign in button")
     public SignInPage clickSignInButton() {
@@ -41,6 +41,7 @@ public class HomePage {
     public void signOut() {
         avatarImg.shouldBe(Condition.visible).click();
         signOutButton.shouldBe(Condition.visible).click();
+
     }
 
     @Step("Check avatar image")

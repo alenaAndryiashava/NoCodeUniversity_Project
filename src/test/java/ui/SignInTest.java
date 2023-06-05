@@ -1,36 +1,44 @@
 package ui;
 
-import Pages.HomePage;
-import Pages.SignInPage;
 
 import org.testng.annotations.Test;
 
 
-public class SignInTest extends BaseTest{
+public class SignInTest extends BaseTest {
 
 
-    @Test(dataProvider = "excelCorrectDataRead", dataProviderClass = DataProviders.class)
+    @Test(testName = "Test-cases 1.1 & 1.2:" +
+            "Authentication and authorization as a teacher/student correct credentials",
+            dataProvider = "excelCorrectDataRead", dataProviderClass = DataProviders.class)
     public void correctAuthTestWithDataProviderExcel(String email, String password) {
-        new HomePage().clickSignInButton();
-        new SignInPage()
+        homePage.clickSignInButton();
+        signInPage
                 .checkSignInForm()
                 .getAuth(email, password);
-       new HomePage().checkHomePageOpeningByMessage();
-       new HomePage().signOut();
+        homePage.checkHomePageOpeningByMessage();
+        homePage.signOut();
     }
 
-    @Test(testName = "CorrectAuthTeacherTest")
-    public void correctAuthTest() {
-        String email  = "roxanne@example.com";
-        String password = "123456";
-        new HomePage().clickSignInButton();
-        SignInPage signInPage = new SignInPage();
+    @Test(testName = "Test-cases 1.3 " +
+            "Authentication with incorrect credentials",
+            dataProvider = "excelWrongDataRead", dataProviderClass = DataProviders.class)
+    public void incorrectAuthTestWithDataProviderExcel(String email, String password) {
+        homePage.clickSignInButton();
+        signInPage.getAuth(email, password);
+        signInPage.checkError();
+
+
+    }
+
+    @Test(testName = "Test-case 1.4:Verify reset password")
+    public void verifyResetPasswordTest() {
+        String email = "malik@example.com";
+        homePage.clickSignInButton();
         signInPage
                 .checkSignInForm()
                 .setEmail(email)
-                .setPassword(password)
-                .signIn();
-        new HomePage().checkHomePageOpeningByMessage();
+                .clickForgotPasswordLink();
+        forgotPasswordPage.checkForgotPasswordFormOpening();
 
     }
 
