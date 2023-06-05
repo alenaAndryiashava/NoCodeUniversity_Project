@@ -4,8 +4,6 @@ import com.codeborne.selenide.Condition;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
@@ -14,20 +12,17 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class SignUpPage {
 
-    private  final SelenideElement signUpForm = $x("//div[@id='signup']");
-    private  final SelenideElement selectRoleMenu = $x("//button[@title='Select your role']");
-    private  final SelenideElement selectMenuOption = $(byCssSelector("ul[role='presentation']"));
-    private  final SelenideElement teacherRole = $(byCssSelector("#bs-select-1-0"));
-    private  final SelenideElement studentRole = $(byCssSelector("#bs-select-1-1"));
+    private final SelenideElement signUpForm = $x("//div[@id='signup']");
+    private final SelenideElement selectRoleMenu = $x("//button[@title='Select your role']");
 
-    private  final SelenideElement fullNameInput = $x("//input[@id='sw-form-capture-full_name-input']");
-    private  final SelenideElement emailInput = $x("//input[@id='sw-form-capture-email-input']");
-    private  final SelenideElement passwordInput = $x("//input[@id='sw-form-password-input']");
-    private  final SelenideElement checkBoxInput = $(byCssSelector("[class='checkmark position-relative sw-checkbox']"));
+    private final SelenideElement fullNameInput = $x("//input[@id='sw-form-capture-full_name-input']");
+    private final SelenideElement emailInput = $x("//input[@id='sw-form-capture-email-input']");
+    private final SelenideElement passwordInput = $x("//input[@id='sw-form-password-input']");
+    private final SelenideElement checkBoxInput = $(byCssSelector("[class='checkmark position-relative sw-checkbox']"));
 
-    private  final SelenideElement signUpButton = $x("//a[@id='sw-sign-up-submit-btn']");
-    private  final SelenideElement errorRequiredFields = $x("//div[contains(@class,'error-message required-errors d-block')]");
-    private  final SelenideElement errorAnExistingUser = $x("//div[contains(@class,'error-message signup-error d-flex')]");
+    private final SelenideElement signUpButton = $x("//a[@id='sw-sign-up-submit-btn']");
+    private final SelenideElement errorRequiredFields = $x("//div[contains(@class,'error-message required-errors d-block')]");
+    private final SelenideElement errorAnExistingUser = $x("//div[contains(@class,'error-message signup-error d-flex')]");
 
     @Step("Check signUp form")
     public SignUpPage checkSignUpForm() {
@@ -73,6 +68,7 @@ public class SignUpPage {
         passwordInput.setValue(password);
         return this;
     }
+
     @Step("Click on a checkbox to consent to the Terms & Privacy Policy")
     public SignUpPage clickCheckbox() {
         checkBoxInput.click();
@@ -80,18 +76,19 @@ public class SignUpPage {
     }
 
     @Step("Click sign up button")
-    public HomePage signUp() {
+    public void signUp() {
         signUpButton.shouldBe(Condition.visible).click();
-        return new HomePage();
+
     }
+
     @Step("Check error message required fields")
-    public SignUpPage checkError() {
+    public void checkError() {
         errorRequiredFields.shouldHave(Condition.text("Please make sure there are no empty required fields."));
-        return this;
     }
+
     @Step("Check error message existing user")
-    public SignUpPage checkErrorExistUser() {
+    public void checkErrorExistUser() {
         errorAnExistingUser.shouldHave(Condition.text("User by given email already exists."));
-        return this;
+
     }
 }

@@ -1,5 +1,6 @@
 package Pages;
 
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -11,15 +12,16 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class SignInPage {
-    private  final SelenideElement signInForm = $x("//div[@id='signin']");
-    private  final SelenideElement emailInput = $x("//input[@id='sw-form-capture-email-input']");
-    private  final SelenideElement passwordInput = $x("//input[@id='sw-form-password-input']");
-    private  final SelenideElement signInButton = $x("//a[@id='sw-sign-in-submit-btn']");
-    private  final SelenideElement forgotPasswordLink = $(byCssSelector("[href='/forgot-password']"));
+
+    private final SelenideElement signInForm = $x("//div[@id='signin']");
+    private final SelenideElement emailInput = $x("//input[@id='sw-form-capture-email-input']");
+    private final SelenideElement passwordInput = $x("//input[@id='sw-form-password-input']");
+    private final SelenideElement signInButtonForm = $x("//a[@id='sw-sign-in-submit-btn']");
+    private final SelenideElement errorMessageSignIn = $x("//div[@class='error-message login-error d-block']");
+    private final SelenideElement forgotPasswordLink = $(byCssSelector("[href='/forgot-password']"));
 
 
-
-    @Step("Authentication and authorization with correct credentials.")
+    @Step("Authentication with correct credentials.")
     public void getAuth(String email, String password) {
         checkSignInForm();
         setEmail(email);
@@ -49,14 +51,21 @@ public class SignInPage {
         return this;
 
     }
+
     @Step("Click sign in button")
-    public SignInPage signIn() {
-        signInButton.shouldBe(Condition.visible).click();
-        return new SignInPage();
-    }
-    @Step(" Click  link 'Forgot password'")
-    public void forgotPassword() {
-        forgotPasswordLink.shouldBe(Condition.visible).click();
+    public void signIn() {
+        signInButtonForm.shouldBe(Condition.visible).click();
+
     }
 
+    @Step("Check login-error message")
+    public void checkError() {
+        errorMessageSignIn.shouldHave(Condition.text("Invalid email or password"));
+
+    }
+
+    @Step(" Click  link 'Forgot password'")
+    public void clickForgotPasswordLink() {
+        forgotPasswordLink.shouldBe(Condition.visible).click();
+    }
 }
