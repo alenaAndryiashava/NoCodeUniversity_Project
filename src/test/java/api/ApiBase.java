@@ -2,11 +2,13 @@ package api;
 
 import com.github.javafaker.Faker;
 import api.enums.EndPoint;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.testng.annotations.BeforeMethod;
 
 public class ApiBase {
     final String SOFTR_API_KEY = "khIbAyJIU5CIuh1oDuBRx1s49";
@@ -14,6 +16,10 @@ public class ApiBase {
     final String SOFTR_DOMAIN = "jere237.softr.app";
 
     protected Faker faker = new Faker();
+    @BeforeMethod
+    public void setUp() {
+        RestAssured.filters(new AllureRestAssured());
+    }
 
     RequestSpecification spec = new RequestSpecBuilder()
             .setBaseUri(CURL)
