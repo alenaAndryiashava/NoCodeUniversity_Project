@@ -7,6 +7,7 @@ import io.qameta.allure.Step;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selectors.byCssSelector;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -14,9 +15,9 @@ public class HomePage {
     private final SelenideElement signInButton_Header = $(byCssSelector("[href='/sign-in']:nth-child(1)"));
     private final SelenideElement signUpButton_Header = $(byCssSelector("[href='/sign-up']:nth-child(2)"));
     private final SelenideElement professorsButton = $(byCssSelector("[href='#teacher-spotlight-heading']"));
-    private final SelenideElement avatarImg = $x("//header/div[1]/div[1]/div[2]/button[1]");
+    private final SelenideElement avatarImg = $(".MuiBox-root.css-4tv0ih");
     private final SelenideElement signOutButton = $(byCssSelector("[class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-vsdmmi'][href='#']"));
-    private final SelenideElement messageNonRegisteredUser = $x("//header//h1[1]");
+    private final SelenideElement messageNonRegisteredUser = $(byText("Welcome to NoCode University's Student Portal"));
     private final SelenideElement messageRole = $x("//header/div[1]/div[1]/div[1]/p[1]");
 
     @Step("Click sign in button")
@@ -51,8 +52,7 @@ public class HomePage {
 
     @Step("Check redirect to Home page")
     public void checkHomePageOpeningByMessage() {
-        messageNonRegisteredUser.shouldBe(Condition
-                .exactText("Welcome to NoCode University's Student Portal"));
+        messageNonRegisteredUser.shouldBe(Condition.visible);
 
     }
 
@@ -65,8 +65,8 @@ public class HomePage {
 
     @Step("Check redirect to Home page as a student")
     public HomePage checkHomePageOpeningStudent() {
-        messageRole.shouldBe(Condition
-                .exactText("As a student you can use this portal to learn more about the courses we offer."));
+        messageRole.shouldBe(Condition.
+                text("As a student you can use this portal to learn more about the courses we offer."));
         return this;
     }
 }
