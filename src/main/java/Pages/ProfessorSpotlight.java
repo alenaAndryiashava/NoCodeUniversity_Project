@@ -57,6 +57,13 @@ public class ProfessorSpotlight {
         return this;
     }
 
+    @Step("Check created user is visible")
+    public ProfessorSpotlight checkCreatedUser() {
+        String expectedNameOfProfessor = cardOfProfessors.$x(".//h3").getText();
+        name.shouldHave(Condition.exactText(expectedNameOfProfessor));
+        return this;
+    }
+
     @Step("Check professor's card by course")
     public ProfessorSpotlight checkProfessorsCardByCourse(String nameOfCourse) {
         listOfCourses.shouldHave(CollectionCondition.texts(nameOfCourse));
@@ -88,7 +95,6 @@ public class ProfessorSpotlight {
         listOfProfessors.shouldNotHave(Condition.text("student"));
         return this;
     }
-
 }
 
 
@@ -98,5 +104,4 @@ public class ProfessorSpotlight {
         professor.shouldBe(Condition.visible, Duration.ofSeconds(2000)).click();
         return this;
     }
-
      */

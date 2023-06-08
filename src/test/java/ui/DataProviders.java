@@ -16,5 +16,4 @@ public class DataProviders {
         ExtUtils ext = new ExcelUtils("src/main/resources/credentials.xlsx", "wrongData");
         return ext.parseData();
     }
-
 }

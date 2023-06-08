@@ -69,4 +69,10 @@ public class HomePage {
                 text("As a student you can use this portal to learn more about the courses we offer."));
         return this;
     }
+
+    @Step("Check header is not visible")
+    public void checkHeaderIsNotVisible() {
+        signInButton_Header.shouldNotBe(Condition.visible);
+        avatarImg.shouldNotBe(Condition.visible);
+    }
 }

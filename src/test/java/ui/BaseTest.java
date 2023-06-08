@@ -18,7 +18,6 @@ public class BaseTest {
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     String noCodeUniversityUrl = "https://jere237.softr.app/";
 
-
     @BeforeMethod
     public void setUp() {
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -36,6 +35,5 @@ public class BaseTest {
                 .setEmail(email)
                 .setPassword(password)
                 .signIn();
-
     }
 }

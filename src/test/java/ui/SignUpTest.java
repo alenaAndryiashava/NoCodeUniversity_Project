@@ -72,7 +72,6 @@ public class SignUpTest extends BaseTest {
                 .signUp();
         signUpPage
                 .checkError();
-
     }
 
     @AfterMethod(onlyForGroups = {"positive"})
