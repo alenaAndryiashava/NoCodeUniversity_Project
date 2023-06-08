@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeMethod;
 
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class BaseTest {
     ProfessorSpotlight professorSpotlight = new ProfessorSpotlight();
