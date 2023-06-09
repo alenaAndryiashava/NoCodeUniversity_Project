@@ -13,7 +13,7 @@ public class DataProviders {
 
     @DataProvider
     public static Object[][] excelWrongDataRead() throws Exception {
-        ExtUtils ext = new ExcelUtils("src/test/resources/credentials.xlsx", "wrongCred");
+        ExtUtils ext = new ExcelUtils("src/test/resources/credentials.xlsx", "wrongData");
         return ext.parseData();
     }
 }
