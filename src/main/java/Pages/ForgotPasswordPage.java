@@ -5,10 +5,11 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+
 
 public class ForgotPasswordPage {
-    private SelenideElement forgotPasswordForm = $x("");
+    //private final SelenideElement forgotPasswordForm = $(byClassName("MuiGrid-root MuiGrid-container css-1d3bbye"));
+    private final SelenideElement forgotPasswordForm = $(byCssSelector("[class='MuiGrid-root MuiGrid-container css-1d3bbye']"));
     private final SelenideElement emailInput = $(byCssSelector("[placeholder='Email']"));
 
     public ForgotPasswordPage checkForgotPasswordFormOpening() {

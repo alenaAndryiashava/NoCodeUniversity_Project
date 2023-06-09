@@ -30,6 +30,7 @@ public class SignInTest extends BaseTest {
 
     }
 
+
     @Test(testName = "Test-case 1.4:Verify reset password")
     public void verifyResetPasswordTest() {
         String email = "malik@example.com";
