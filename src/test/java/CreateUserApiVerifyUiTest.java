@@ -1,5 +1,4 @@
 import Pages.HomePage;
-import Pages.ProfessorSpotlight;
 import Pages.SignInPage;
 import api.ApiBase;
 import api.CreateUserDto;
@@ -13,9 +12,9 @@ import ui.BaseTest;
 
 public class CreateUserApiVerifyUiTest extends BaseTest {
     CreateUserDto createUserDto;
-    String full_name = new Faker().name().fullName();
-    String email = new Faker().internet().emailAddress();
-    String password = "123456";
+    private final String full_name = new Faker().name().fullName();
+    private final String email = new Faker().internet().emailAddress();
+    private final String password = new Faker().internet().password();
 
     @BeforeMethod(onlyForGroups = {"positive"})
     public void precondition() {
