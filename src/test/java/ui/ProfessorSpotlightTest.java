@@ -51,7 +51,7 @@ public class ProfessorSpotlightTest extends BaseTest {
     }
 
     @Test(testName = "Test-case 3.1: Verify the display of the list of teachers by non registered user")
-    public void nonRegisteredUserTest() {
+    public void availabilityProfessorSpotlightNonRegisteredUserTest() {
         homePage.clickProfessorsButton();
         professorSpotlight
                 .checkHeaderProfessorSpotlight()
