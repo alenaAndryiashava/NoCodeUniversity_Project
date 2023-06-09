@@ -18,7 +18,7 @@ public class HomePage {
     private final SelenideElement avatarImg = $(".MuiBox-root.css-4tv0ih");
     private final SelenideElement signOutButton = $(byCssSelector("[class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-vsdmmi'][href='#']"));
     private final SelenideElement messageNonRegisteredUser = $(byText("Welcome to NoCode University's Student Portal"));
-    private final SelenideElement messageRole = $x("//header/div[1]/div[1]/div[1]/p[1]");
+    private final SelenideElement messageRole = $x("//div[@class='col-lg-5 pb-5 pb-lg-0 text-center text-lg-left'] //p");
 
     @Step("Click sign in button")
     public SignInPage clickSignInButton() {

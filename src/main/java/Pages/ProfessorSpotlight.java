@@ -8,10 +8,11 @@ import io.qameta.allure.Step;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProfessorSpotlight {
-    private final SelenideElement headerProfessorSpotlight = $x("//h1[@class='ql-align-center']//span");
+    private final SelenideElement headerProfessorSpotlight = $(byClassName("ql-align-center"));
     private final SelenideElement cardOfProfessors = $x("//div[@class='css-j7qwjs']");
     private final SelenideElement listOfProfessors = $x("//div[@class='horizontal-list-item']");
     private final SelenideElement searchInput = $x("(//input[@id=':r0:'])[1]");
