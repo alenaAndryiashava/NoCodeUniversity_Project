@@ -21,6 +21,7 @@ public class SignUpPage {
     private final SelenideElement checkBoxInput = $(byCssSelector("[class='checkmark position-relative sw-checkbox']"));
 
     private final SelenideElement signUpButton = $x("//a[@id='sw-sign-up-submit-btn']");
+    private final SelenideElement signInButton = $x("//a[@id='sw-go-to-sign-in-btn']");
     private final SelenideElement errorRequiredFields = $x("//div[contains(@class,'error-message required-errors d-block')]");
     private final SelenideElement errorAnExistingUser = $x("//div[contains(@class,'error-message signup-error d-flex')]");
 
@@ -78,7 +79,11 @@ public class SignUpPage {
     @Step("Click sign up button")
     public void signUp() {
         signUpButton.shouldBe(Condition.visible).click();
+    }
 
+    @Step("Click sign in button")
+    public void signIn() {
+        signInButton.shouldBe(Condition.visible).click();
     }
 
     @Step("Check error message required fields")
