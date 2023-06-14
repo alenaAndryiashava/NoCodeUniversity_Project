@@ -59,8 +59,9 @@ public class SignInPage {
     }
 
     @Step("Check login-error message")
-    public void checkError() {
+    public SignInPage checkError() {
         errorMessageSignIn.shouldHave(Condition.text("Invalid email or password"));
+        return this;
 
     }
 

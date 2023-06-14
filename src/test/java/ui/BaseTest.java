@@ -17,7 +17,9 @@ public class BaseTest {
     SignUpPage signUpPage = new SignUpPage();
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     TeacherDetailsPage teacherDetailsPage = new TeacherDetailsPage();
+    ResetPasswordPage resetPasswordPage = new ResetPasswordPage();
     String noCodeUniversityUrl = "https://jere237.softr.app/";
+    String newNoCodeUniversityUrl = "https://erich416.softr.app/";
 
     @BeforeMethod
     public void setUp() {
@@ -26,7 +28,7 @@ public class BaseTest {
         Configuration.browserCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().savePageSource(false));
 
-        open(noCodeUniversityUrl);
+        open(newNoCodeUniversityUrl);
     }
 
     public void correctAuthTest(String email, String password) {

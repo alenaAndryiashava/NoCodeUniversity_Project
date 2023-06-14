@@ -34,13 +34,30 @@ public class SignInTest extends BaseTest {
     @Test(testName = "Test-case 1.4:Verify reset password")
     public void verifyResetPasswordTest() {
         String email = "malik@example.com";
+        String password = "123451";
         homePage.clickSignInButton();
         signInPage
                 .checkSignInForm()
                 .setEmail(email)
+                .setPassword(password)
+                .signIn();
+        signInPage.checkError()
                 .clickForgotPasswordLink();
-        forgotPasswordPage.checkForgotPasswordFormOpening();
+        forgotPasswordPage
+                .checkFormOpeningForgotPassword()
+                .setEmail(email)
+                .clickRecoverPassword()
+                .checkMessageResetPassword();
+        /*resetPasswordPage.openResetLink();
+        resetPasswordPage
+                .resetPasswordFormOpening()
+                .setNewPassword(newPassword)
+                .clickResetButton();
+        homePage.clickSignInButton();
+        signInPage.getAuth(email, newPassword);
+        homePage.checkHomePageOpeningTeacher();
+
+         */
 
     }
-
 }

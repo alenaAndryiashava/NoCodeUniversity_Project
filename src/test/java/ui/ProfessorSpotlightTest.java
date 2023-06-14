@@ -18,7 +18,7 @@ public class ProfessorSpotlightTest extends BaseTest {
         homePage.signOut();
     }
 
-    //TODO Bug report: Defect_ID 2.1 & 2.3
+    //TODO Bug report: Defect_ID 2.1 & 2.3 -> new version>>fixed
     @Test(testName = "Test-case 3.3 & 3.6: Verify the display of the list of teachers, search by student's name",
             dataProvider = "excelCorrectDataRead", dataProviderClass = DataProviders.class)
     public void searchByStudentsNameTest(String email, String password) {
@@ -33,7 +33,7 @@ public class ProfessorSpotlightTest extends BaseTest {
         homePage.signOut();
     }
 
-    //TODO Bug report: Defect_ID 2.2 & 2.4
+    //TODO Bug report: Defect_ID 2.2 & 2.4 -> new version>>fixed
     @Test(testName = "Test-case 3.4 & 3.7: Verify the display of the list of teachers, search by course name",
             dataProvider = "excelCorrectDataRead", dataProviderClass = DataProviders.class)
     public void searchByCourseNameTest(String email, String password) {

@@ -14,8 +14,10 @@ public class ApiBase {
     final String SOFTR_API_KEY = "khIbAyJIU5CIuh1oDuBRx1s49";
     final String CURL = "https://studio-api.softr.io/v1";
     final String SOFTR_DOMAIN = "jere237.softr.app";
+    final String NEW_SOFTR_DOMAIN = "erich416.softr.app";
 
     protected Faker faker = new Faker();
+
     @BeforeMethod
     public void setUp() {
         RestAssured.filters(new AllureRestAssured());
@@ -25,10 +27,10 @@ public class ApiBase {
             .setBaseUri(CURL)
             .setContentType(ContentType.JSON)
             .addHeader("Softr-Api-Key", SOFTR_API_KEY)
-            .addHeader("Softr-Domain", SOFTR_DOMAIN)
+            .addHeader("Softr-Domain", NEW_SOFTR_DOMAIN)
             .build();
 
-    public Response doPostRequest(EndPoint endPoint, int statusCode, Object body){
+    public Response doPostRequest(EndPoint endPoint, int statusCode, Object body) {
         Response response = RestAssured.given()
                 .spec(spec)
                 .body(body)
@@ -42,7 +44,7 @@ public class ApiBase {
         return response;
     }
 
-    public Response doDeleteRequest(EndPoint endPoint, int statusCode, String email){
+    public Response doDeleteRequest(EndPoint endPoint, int statusCode, String email) {
         Response response = RestAssured.given()
                 .spec(spec)
                 .when()
@@ -55,7 +57,8 @@ public class ApiBase {
         response.then().assertThat().statusCode(statusCode);
         return response;
     }
-    public String getWrongEmail(){
+
+    public String getWrongEmail() {
         return faker.internet().emailAddress();
     }
 }
