@@ -30,7 +30,7 @@ public class CreateUserTest extends ApiBase {
         emailCreatedUser = response.jsonPath().getString("email");
 
         Assert.assertEquals(response.jsonPath().getString("full_name"), createUserDto.getFull_name());
-        Assert.assertEquals(response.jsonPath().getString("email"), createUserDto.getEmail());
+        Assert.assertEquals(response.jsonPath().getString(emailCreatedUser), createUserDto.getEmail());
 
     }
 }

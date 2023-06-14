@@ -16,6 +16,7 @@ public class BaseTest {
     SignInPage signInPage = new SignInPage();
     SignUpPage signUpPage = new SignUpPage();
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
+    TeacherDetailsPage teacherDetailsPage = new TeacherDetailsPage();
     String noCodeUniversityUrl = "https://jere237.softr.app/";
 
     @BeforeMethod

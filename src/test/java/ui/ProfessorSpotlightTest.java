@@ -3,19 +3,18 @@ package ui;
 import org.testng.annotations.Test;
 
 public class ProfessorSpotlightTest extends BaseTest {
-    String nameOfTeacher = "Cordelia Taraby";
 
     @Test(testName = "Test-case 3.2 & 3.5: Verify the display of the list of teachers, search by professor's name",
             dataProvider = "excelCorrectDataRead", dataProviderClass = DataProviders.class)
     public void searchByProfessorsNameTest(String email, String password) {
+        String nameOfTeacher = "Roxanne";
         this.correctAuthTest(email, password);
         homePage.clickProfessorsButton();
         professorSpotlight
                 .checkHeaderProfessorSpotlight()
                 .fillSearchInput(nameOfTeacher)
                 .scrollDownPage()
-                .checkSelectedNameInTheList(nameOfTeacher)
-                .checkProfessorsCardByName();
+                .checkProfessorsCardByName(nameOfTeacher);
         homePage.signOut();
     }
 
