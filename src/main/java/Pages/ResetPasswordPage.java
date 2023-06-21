@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ResetPasswordPage {
+    String link = "https://erich416.softr.app/reset-password?token=859c4774-da7e-47c5-941e-52fd4c576f8c";
 
 
     private final SelenideElement resetPasswordForm = $x("//div[@id='reset-password']");
@@ -20,7 +21,7 @@ public class ResetPasswordPage {
 
     @Step("Open email and check link and click")
     public void openResetLink() {
-        $(byLinkText("https://erich416.sof"))
+        $(byLinkText("https://erich416.softr.app/reset-password?token=" + "859c4774-da7e-47c5-941e-52fd4c576f8c"))
                 .shouldBe(Condition.visible)
                 .click();
     }
