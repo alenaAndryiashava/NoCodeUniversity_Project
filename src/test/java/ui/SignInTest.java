@@ -30,7 +30,7 @@ public class SignInTest extends BaseTest {
 
     }
 
-    //TODO  Bug report: Defect_ID 1.4
+    //TODO  Bug report: Defect_ID 1.4 -> new version fixed
     @Test(testName = "Test-case 1.4:Verify reset password")
     public void verifyResetPasswordTest() {
         String email = "malik@example.com";
@@ -58,6 +58,5 @@ public class SignInTest extends BaseTest {
         homePage.checkHomePageOpeningTeacher();
 
          */
-
     }
 }

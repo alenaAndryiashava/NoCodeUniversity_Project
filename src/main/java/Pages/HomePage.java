@@ -17,7 +17,6 @@ public class HomePage {
     private final SelenideElement professorsButton = $(byCssSelector("[href='#teacher-spotlight-heading']"));
     private final SelenideElement avatarImg = $(".MuiBox-root.css-4tv0ih");
     private final SelenideElement signOutButton = $(byCssSelector("[href='#']"));
-    private final SelenideElement myProfileButton = $(byCssSelector("[href='/user-profile']"));
     private final SelenideElement messageNonRegisteredUser = $(byText("Welcome to NoCode University's Student Portal"));
     private final SelenideElement messageRole = $x("//div[@class='col-lg-5 pb-5 pb-lg-0 text-center text-lg-left'] //p");
 
@@ -31,12 +30,6 @@ public class HomePage {
     public SignUpPage clickSignUpButton() {
         signUpButton_Header.shouldBe(Condition.visible, Duration.ofSeconds(2000)).click();
         return new SignUpPage();
-    }
-
-    @Step("Click my profile button")
-    public ProfilePage clickMyProfileButton() {
-        myProfileButton.shouldBe(Condition.visible, Duration.ofSeconds(2000)).click();
-        return new ProfilePage();
     }
 
     @Step("Click Professors button")

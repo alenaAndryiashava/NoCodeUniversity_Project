@@ -17,7 +17,7 @@ public class BaseTest {
     SignUpPage signUpPage = new SignUpPage();
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     TeacherDetailsPage teacherDetailsPage = new TeacherDetailsPage();
-    ResetPasswordPage resetPasswordPage = new ResetPasswordPage();
+    EditRecordForm editRecordForm = new EditRecordForm();
     String noCodeUniversityUrl = "https://jere237.softr.app/";
     String newNoCodeUniversityUrl = "https://erich416.softr.app/";
 
