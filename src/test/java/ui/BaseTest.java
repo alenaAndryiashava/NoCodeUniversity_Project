@@ -19,7 +19,7 @@ public class BaseTest {
     TeacherDetailsPage teacherDetailsPage = new TeacherDetailsPage();
     EditRecordForm editRecordForm = new EditRecordForm();
     String noCodeUniversityUrl = "https://jere237.softr.app/";
-    String newNoCodeUniversityUrl = "https://erich416.softr.app/";
+    String newVersionNoCodeUniversityUrl = "https://erich416.softr.app/";
 
     @BeforeMethod
     public void setUp() {
@@ -28,7 +28,7 @@ public class BaseTest {
         Configuration.browserCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().savePageSource(false));
 
-        open(newNoCodeUniversityUrl);
+        open(newVersionNoCodeUniversityUrl);
     }
 
     public void correctAuthTest(String email, String password) {
