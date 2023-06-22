@@ -18,7 +18,7 @@ public class TeacherDetailsPage {
     @Step("Check the opening teachers details form")
     public TeacherDetailsPage isTeachersDetailsOpen(String name, String email) {
         teachersDetailsForm
-                .shouldBe(Condition.visible, Duration.ofSeconds(2000))
+                .shouldBe(Condition.visible, Duration.ofSeconds(20))
                 .shouldHave(Condition.text(name))
                 .shouldHave(Condition.text(email))
                 .shouldHave(Condition.text("teacher"));
@@ -29,13 +29,15 @@ public class TeacherDetailsPage {
     @Step("Click edit button on teacher details page")
     public void clickEditButton() {
         editButton
-                .shouldBe(Condition.editable, Duration.ofSeconds(2000))
+                .shouldBe(Condition.editable, Duration.ofSeconds(20))
                 .click();
     }
 
     @Step("Check teachers details")
     public TeacherDetailsPage checkAboutInTeacherDetails(String name, String about, String email) {
-        teacherDetailsField.shouldHave(CollectionCondition.texts(name))
+        teachersDetailsForm.scrollTo();
+        teacherDetailsField
+                .shouldHave(CollectionCondition.texts(name))
                 .shouldHave(CollectionCondition.texts(about))
                 .shouldHave(CollectionCondition.texts(email));
         return this;

@@ -16,7 +16,8 @@ public class ProfessorSpotlight {
     private final SelenideElement listOfProfessors = $x("//div[@class='horizontal-list-item']");
     private final SelenideElement searchInput = $x("(//input[@id=':r0:'])[1]");
     private final SelenideElement errorProfessorsSpotlightSearch = $("[class='inbox-list-container'] div");
-    private final SelenideElement name = $("[class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-wh0kks'] h3");
+    private final SelenideElement name = $("[class='css-j7qwjs'] h3");
+    private final SelenideElement aboutField = $("[class='css-j7qwjs'] p");
     private final SelenideElement viewProfileButton = $("[class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-wh0kks'] [type='button']");
     private final ElementsCollection listOfCourses = $$("[class='element-container sw-text-align-left MuiBox-root css-bns4tv'] [class='css-1vykty2']");
     private final SelenideElement searchResult = $("[class='inbox-list-container']");
@@ -38,7 +39,7 @@ public class ProfessorSpotlight {
 
     @Step("Click and enter selected course on the <Search by course name or professor> field")
     public ProfessorSpotlight fillSearchInput(String name) {
-        searchInput.shouldBe(Condition.visible, Duration.ofSeconds(2000)).click();
+        searchInput.shouldBe(Condition.visible, Duration.ofSeconds(2000)).clear();
         searchInput.setValue(name);
         return this;
     }
@@ -54,6 +55,15 @@ public class ProfessorSpotlight {
     public ProfessorSpotlight checkProfessorsCardByName(String enteredName) {
         isSelectedNameInTheList(enteredName);
         name.shouldHave(Condition.exactText(enteredName));
+        viewProfileButton.shouldBe(Condition.visible);
+        return this;
+    }
+
+    @Step("Check name and about information")
+    public ProfessorSpotlight checkProfessorsCardByNameAndAbout(String enteredName, String about) {
+        isSelectedNameInTheList(enteredName);
+        name.shouldHave(Condition.exactText(enteredName));
+        aboutField.shouldHave(Condition.exactText(about));
         viewProfileButton.shouldBe(Condition.visible);
         return this;
     }

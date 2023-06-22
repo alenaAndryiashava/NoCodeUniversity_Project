@@ -16,10 +16,11 @@ public class RegistrationAndUpdateDataFromProfessorSpotlightTest extends BaseTes
     @Test(testName = "Test-case 3.8: Registration a non-existent user (as teacher) and update profile page from Professor Spotlight")
     public void registrationAsTeacherAndUpdateProfileTest() {
         String newFullName = faker.name().fullName();
+        String teacherRole = "teacher";
         homePage.clickSignUpButton();
         signUpPage
                 .checkSignUpForm()
-                .selectRole("teacher")
+                .selectRole(teacherRole)
                 .fillRequiredFields(fullName, email, password)
                 .clickCheckbox()
                 .signUp();
@@ -44,6 +45,15 @@ public class RegistrationAndUpdateDataFromProfessorSpotlightTest extends BaseTes
                 .clickSave();
         teacherDetailsPage
                 .checkAboutInTeacherDetails(newFullName, about, email);
+        homePage.signOut();
+        signInPage.getAuth(email, password);
+        homePage.clickProfessorsButton();
+        professorSpotlight
+                .fillSearchInput(newFullName)
+                .scrollDownPage()
+                .checkProfessorsCardByNameAndAbout(newFullName, about)
+                .fillSearchInput(fullName)
+                .checkErrorSearch();
         homePage.signOut();
     }
 
