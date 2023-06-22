@@ -24,7 +24,7 @@ public class EditRecordForm {
     @Step("Enter '{about}'")
     public EditRecordForm setAbout(String about) {
         aboutField.scrollTo();
-        aboutField.shouldBe(Condition.visible, Duration.ofSeconds(10));
+        aboutField.shouldBe(Condition.visible, Duration.ofSeconds(20));
         aboutField.setValue(about);
         return this;
 
