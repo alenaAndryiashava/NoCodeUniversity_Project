@@ -13,7 +13,7 @@ public class RegistrationAndUpdateDataFromProfessorSpotlightTest extends BaseTes
     private final String password = faker.internet().password();
     private final String about = faker.lorem().sentence();
 
-    @Test(groups = {"positive"}, testName = "Test-case 2.1: Registration a non-existent user (as teacher) and update profile page from Professor Spotlight")
+    @Test(testName = "Test-case 3.8: Registration a non-existent user (as teacher) and update profile page from Professor Spotlight")
     public void registrationAsTeacherAndUpdateProfileTest() {
         String newFullName = faker.name().fullName();
         homePage.clickSignUpButton();
