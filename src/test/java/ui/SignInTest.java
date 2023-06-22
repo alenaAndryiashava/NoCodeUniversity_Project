@@ -48,15 +48,6 @@ public class SignInTest extends BaseTest {
                 .setEmail(email)
                 .clickRecoverPassword()
                 .checkMessageResetPassword();
-        /*resetPasswordPage.openResetLink();
-        resetPasswordPage
-                .resetPasswordFormOpening()
-                .setNewPassword(newPassword)
-                .clickResetButton();
-        homePage.clickSignInButton();
-        signInPage.getAuth(email, newPassword);
-        homePage.checkHomePageOpeningTeacher();
-
-         */
+        
     }
 }
