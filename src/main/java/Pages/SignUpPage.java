@@ -27,7 +27,7 @@ public class SignUpPage {
 
     @Step("Check signUp form")
     public SignUpPage checkSignUpForm() {
-        signUpForm.shouldBe(Condition.visible, Duration.ofSeconds(2000));
+        signUpForm.shouldBe(Condition.visible, Duration.ofSeconds(20));
         return this;
     }
 
@@ -35,7 +35,7 @@ public class SignUpPage {
     public SignUpPage selectRole(String role) {
         SelenideElement teacherRole = $(byCssSelector("#bs-select-1-0"));
         SelenideElement studentRole = $(byCssSelector("#bs-select-1-1"));
-        selectRoleMenu.shouldBe(Condition.visible, Duration.ofSeconds(2000)).click();
+        selectRoleMenu.shouldBe(Condition.visible, Duration.ofSeconds(20)).click();
         if (role.contains("teacher")) {
             teacherRole.click();
         } else {

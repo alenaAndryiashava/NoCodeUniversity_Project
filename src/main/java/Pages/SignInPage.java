@@ -31,7 +31,7 @@ public class SignInPage {
 
     @Step("Check signIn form")
     public SignInPage checkSignInForm() {
-        signInForm.shouldBe(Condition.visible, Duration.ofSeconds(2000));
+        signInForm.shouldBe(Condition.visible, Duration.ofSeconds(20));
         return this;
 
     }

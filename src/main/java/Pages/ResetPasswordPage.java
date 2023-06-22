@@ -29,7 +29,7 @@ public class ResetPasswordPage {
     @Step("Reset password")
     public ResetPasswordPage resetPasswordFormOpening() {
         resetPasswordForm
-                .shouldBe(Condition.visible, Duration.ofSeconds(2000))
+                .shouldBe(Condition.visible, Duration.ofSeconds(20))
                 .shouldHave(Condition.text("Reset password"));
         return this;
 

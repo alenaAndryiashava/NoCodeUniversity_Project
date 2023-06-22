@@ -22,19 +22,19 @@ public class HomePage {
 
     @Step("Click sign in button")
     public SignInPage clickSignInButton() {
-        signInButton_Header.shouldBe(Condition.visible, Duration.ofSeconds(2000)).click();
+        signInButton_Header.shouldBe(Condition.visible, Duration.ofSeconds(20)).click();
         return new SignInPage();
     }
 
     @Step("Click sign up button")
     public SignUpPage clickSignUpButton() {
-        signUpButton_Header.shouldBe(Condition.visible, Duration.ofSeconds(2000)).click();
+        signUpButton_Header.shouldBe(Condition.visible, Duration.ofSeconds(20)).click();
         return new SignUpPage();
     }
 
     @Step("Click Professors button")
     public HomePage clickProfessorsButton() {
-        professorsButton.shouldBe(Condition.visible, Duration.ofSeconds(2000)).click();
+        professorsButton.shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
         return this;
     }
 
