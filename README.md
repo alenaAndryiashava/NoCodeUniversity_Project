@@ -1,5 +1,5 @@
 # NoCodeUniversity_Project
-NoCode University is a centralized platform designed to help students manage their academic lives.
+This portal provides students with a single point of access to various academic resources and information.
 
 Two versions of the site were tested (Version 1.4.1 - https://jere237.softr.app, Version 1.4.2 - https://erich416.softr.app/)
 
